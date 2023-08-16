@@ -1,2 +1,2 @@
 # todoapp
-#this is a unfinshed project in where I am using the perm stack in order to creat a todo so far I have gotten my back end connected to my front end and can display items in my stack howver I have to make it so that the user is able to input items.
+#In this proejcect I make use of express node.js react and java script to make a todo app where you can creat a post and delete post from a postgresSQL data base.
