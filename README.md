@@ -1,2 +1,2 @@
 # todoapp
-#In this proejcect I make use of express node.js react and java script to make a todo app where you can creat a post and delete post from a postgresSQL data base.
+#n this project, I utilize Express.js, Node.js, React, and JavaScript to create a todo application. The app allows users to create and delete posts, which are stored in a PostgreSQL database."
