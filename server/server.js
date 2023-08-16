@@ -35,17 +35,39 @@ async function connect(){;
     }
 }
 
-// respond with "hello world" when a GET request is made to the homepage
+
 app.get("/todo", async (req, res) => {
-    try{
-       const results = await client.query("select * from todos");
+    try {
+        const results = await client.query("select * from todos");
         res.json(results.rows);
-    } catch(e){
-            console.log("work error");
-            res.send("error");
-        
+    } catch (e) {
+        console.log("Error:", e);
+        res.status(500).json({ error: "Database error" });
     }
-   3
-  
+});
+
+app.post("/todo", async (req, res) => {
+    try {
+
+        const result = await client.query("INSERT INTO todos (title) VALUES ($1)", [
+            req.body.todo,
+        ]);
+
+        res.json({ status: "success" });
+    } catch (e) {
+        console.error("Error:", e);
+        res.status(500).json({ error: "Database error" });
+    }
+});
+app.delete("/todo/:id", async (req, res) => {
+    try {
+        const todoID = req.params.id;
+        
+        const result = await client.query("DELETE FROM todos WHERE id = $1",[todoID])
+        res.json({ status: "success" });
+    } catch (e) {
+        console.error("Error:", e);
+        res.status(500).json({ error: "Database error" });
+    }
 });
 app.listen(4000, () => console.log("lisining"));
